@@ -17,11 +17,11 @@ let pokemonList = [
 ];
 
 for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > 2.5); {
-    console.log(pokemonList[i]name.height + "Wow, that's big!");
+  if (pokemonList[i].height > 2.5) {
+    console.log(pokemonList[i].name + ' Height: ' + pokemonList[i].height + " Wow, that's big!")
+  }else if (pokemonList[i].height < 2.5 && pokemonList[i].height > 1.5) {
+    console.log(pokemonList[i].name + ' Height: ' + pokemonList[i].height)
+  }else (pokemonList[i].height){
+    console.log(pokemonList[i].name + ' Height: ' + pokemonList[i].height)
   }
-  }else if (pokemonList[i].height < 2.5 && > 1.5); {
-    console.log(pokemonList[i]name.height);
-  }else (pokemonList[i].height < 1.5);{
-    console.log(pokemonList[i].name.height);
-  }
+}
