@@ -18,12 +18,16 @@ let pokemonList = [
 
 for (let i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].height > 2.5) {
-      // you were trying to call name at height at the same time. These are seperate properties so you need to call them individually.
     console.log(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ')'+ ' -' + " Wow, that's big!")
   }else if (pokemonList[i].height < 2.5 && pokemonList[i].height > 1.5) {
     console.log(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ')')
   }else{
     console.log(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ')')
   }
+  document.write(pokemonList[i].name + ' (Height:');
+   if (pokemonList[i].height > 2.5) {
+     document.write(pokemonList[i].height + ' )' +" - Wow, that's big!" + '<br>');
+   } else if (pokemonList[i].height < 2.5) {
+  document.write(pokemonList[i].height + ' )' + '<br>');
+ }
 }
-document.write(pokemonList);
