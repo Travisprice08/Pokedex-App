@@ -16,18 +16,6 @@ let pokemonList = [
   },
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
-    if (pokemonList[i].height > 2.5) {
-    console.log(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ')'+ ' -' + " Wow, that's big!")
-  }else if (pokemonList[i].height < 2.5 && pokemonList[i].height > 1.5) {
-    console.log(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ')')
-  }else{
-    console.log(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ')')
-  }
-  document.write(pokemonList[i].name + ' (Height:');
-   if (pokemonList[i].height > 2.5) {
-     document.write(pokemonList[i].height + ' )' +" - Wow, that's big!" + '<br>');
-   } else if (pokemonList[i].height < 2.5) {
-  document.write(pokemonList[i].height + ' )' + '<br>');
- }
-}
+pokemonList.forEach(function(pokemon) {
+  console.log(pokemon.name + ' Height: ' + pokemon.height + ' Type: ' + pokemon.type)
+});
