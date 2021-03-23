@@ -24,6 +24,9 @@ let pokemonRepository = (function () {
     },
     getAll: function() {
       return pokemonList;
+    },
+    addListItem: function(pokemon){
+
     }
   }
 })();
@@ -32,7 +35,20 @@ let pokemonRepository = (function () {
 pokemonRepository.add({ name: 'Pikachu', height: 1, type: 'Electric'});
 console.log(pokemonRepository.getAll() );
 
+function showdetails(pokemon) {
+  console.log(pokemon)
+}
 //pokemon function added from IIFE public function to access from outside
-pokemonList.forEach(function(pokemon) {
-  document.write(pokemon.name + ' Height: ' + pokemon.height + ' Type: ' + pokemon.type + '<br>')
+pokemonRepository.getAll().forEach(function(pokemon)  {
+  let pokemonList = document.querySelector('.pokemon-list');
+  let listPokemon = document.createElement('li');
+  let button = document.createElement('button');
+  button.innerText = pokemon.name;
+  button.classList.add('pokedex-button');
+  listPokemon.appendChild(button);
+  pokemonList.appendChild(listPokemon);
+  button.addEventListener('click', function () {
+    showdetails(pokemon);
+  });
+
 });
