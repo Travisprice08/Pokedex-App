@@ -1,3 +1,4 @@
+// IIFE repository
 //Object array
 let pokemonList = [
     {
@@ -16,7 +17,6 @@ let pokemonList = [
       type: 'Water'
     },
   ];
-// IIFE repository
 let pokemonRepository = (function () {
 
   function add(pokemon) {
@@ -39,7 +39,7 @@ let pokemonRepository = (function () {
     });
   }
 
-  function addListItem () {
+  function addListItem (pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
     let listPokemon = document.createElement('li');
     let button = document.createElement('button');
