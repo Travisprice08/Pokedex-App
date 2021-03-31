@@ -1,27 +1,15 @@
 // IIFE repository
-//Object array
-let pokemonList = [
-    {
-      name: 'Bulbasaur',
-      height: '3',
-      type: ['Grass','Poison']
-    },
-    {
-      name: 'Charmander',
-      height: '2',
-      type: 'Fire'
-    },
-    {
-      name: 'Squirtle',
-      height: '1',
-      type: 'Water'
-    },
-  ];
 let pokemonRepository = (function () {
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   function add(pokemon) {
-    if (typeof (pokemon) ==='object') {
-      pokemonList.push(pokemon)
+    if (typeof (pokemon) ==='object' &&
+       'name' in pokemon &&
+       'detailsUrl' in pokemon) {
+      pokemonList.push(pokemon);
+    } else {
+      console.log('Error, could not locate Pokemon data.');
     }
   }
 
@@ -29,13 +17,9 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  function showdetails(pokemon) {
-    console.log(pokemon)
-  }
-
   function buttonListener (button, poke) {
     button.addEventListener('click', function () {
-      showdetails(poke);
+      showdetails(pokemon);
     });
   }
 
@@ -49,18 +33,54 @@ let pokemonRepository = (function () {
     pokemonList.appendChild(listPokemon);
   }
 
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+
+  function loadDetails(item) {
+  let url = item.detailsUrl;
+  return fetch(url).then(function (response) {
+    return response.json();
+  }).then(function (details) {
+    item.imageUrl = details.sprites.front_default;
+    item.height = details.height;
+    item.types = details.types;
+  }).catch(function (e) {
+    console.error(e);
+    });
+  }
+
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
+  }
+
   return {
     add: add,
     getAll: getAll,
+    loadList: loadList,
+    loadDetails: loadDetails,
     addListItem: addListItem,
   };
 })();
 
-//add function
-pokemonRepository.add({ name: 'Pikachu', height: 1, type: 'Electric'});
-console.log(pokemonRepository.getAll() );
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addListItem(pokemon);
+  });
+});
 
 //pokemon function added from IIFE public function to access from outside
-pokemonRepository.getAll().forEach(function(pokemon){
-  pokemonRepository.addListItem(pokemon);
-});
