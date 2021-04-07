@@ -72,10 +72,10 @@ let pokemonRepository = (function () {
   // both show and hide modal functions
 
   function showModal(pokemon) {
-  let modalContainer = document.querySelector('.modal-body');
+  let modalContainer = document.querySelector('.modal');
   //modalContainer.classList.add('is-visible');
   let modalTitle = document.querySelector('.modal-title');
-  let pokeModalBody = document.querySelector('.modal-content');
+  let pokeModalBody = document.querySelector('.modal-body');
 
   modalTitle.innerText = '';
   pokeModalBody.innerText = '';
@@ -90,10 +90,11 @@ let pokemonRepository = (function () {
   let heightDetail = document.createElement('p');
   heightDetail.innerText = 'height: ${pokemon.height}';
 
+  modalTitle.appendChild(pokemon.name);
+  pokeModalBody.appendChild(heightDetail);
 };
 
-modalTitle.appendChild(pokemon.name);
-pokeModalBody.appendChild(heightDetail);
+
 
 document.querySelector('button').addEventListener('click', () => {
   showModal();
