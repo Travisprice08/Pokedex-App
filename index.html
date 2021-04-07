@@ -4,12 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>CF JS App</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <header>
+      <nav>
+        <h1> TP's Pokedex</h1>
+        <p>A datebase for all Pokemon</p>
+      </nav>
+    </header>
+    <div id='simpleModal' class='modal'>
+      <div class='modal-content'>
+        <button class='closeBtn'> &times; </button>
+        <h2 class='modal-title' id= 'pokeModalLabel'>Pokemon Name</h2>
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
     <ul class = 'pokemon-list'></ul>
     <script src= "js/promise-polyfill.js"></script>
-    <script src= "js/fetch-polyfill.js"></script>
+    <script src= "js/fetch.umd.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
