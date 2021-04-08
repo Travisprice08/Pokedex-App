@@ -81,6 +81,9 @@ header {
     cursor: pointer;
   }
 
+.is-visible {
+  display: block;
+}
 /*.modal-content {
     background-color: ;
     border-radius: 3px;
