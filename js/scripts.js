@@ -3,6 +3,7 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   let pokeDexBtn = document.getElementById('pokedex-button');
+  let modal = document.getElementById('simpleModal');
 
   function add(pokemon) {
     if (typeof (pokemon) ==='object' &&
@@ -35,7 +36,6 @@ let pokemonRepository = (function () {
     });
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
-
   }
 
   function loadList() {
@@ -67,6 +67,13 @@ let pokemonRepository = (function () {
     });
   }
 
+  //Function to close modal if outside click
+  function clickOutside(e){
+    if(e.target == modal) {
+      modal.style.display = 'none';
+      }
+    }
+
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
       showModal(pokemon);
@@ -91,23 +98,22 @@ let pokemonRepository = (function () {
   let heightDetail = document.createElement('p');
   heightDetail.innerText = `height: ${pokemon.height}`;
 
-
   pokeModalBody.appendChild(heightDetail);
   pokeModalBody.appendChild(pokeImg);
 };
-
-
-
-
 
 document.querySelector('button').addEventListener('click', () => {
   showModal();
 });
 
+// Listen for close Click
 let closeBtn = document.querySelector('.closeBtn');
 closeBtn.addEventListener('click', function () {
   document.querySelector('.modal').classList.remove('is-visible');
 });
+
+// Listen for outside click
+window.addEventListener('click', clickOutside);
 
   return {
     add: add,
@@ -115,7 +121,7 @@ closeBtn.addEventListener('click', function () {
     loadList: loadList,
     loadDetails: loadDetails,
     addListItem: addListItem,
-    addButtonListener: buttonListener,
+    addButtonListener: addButtonListener,
     showDetails: showDetails,
     showModal: showModal
   };
