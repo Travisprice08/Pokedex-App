@@ -130,12 +130,6 @@ let pokemonRepository = (function () {
   pokeModalBody.appendChild(pokeImg);
 };
 
-document.querySelector('button').addEventListener('click', () => {
-  showModal();
-});
-
-
-
 
   return {
     add: add,
