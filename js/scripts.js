@@ -27,9 +27,10 @@ let pokemonRepository = (function () {
 
   //Creating list and buttons
   function addListItem (pokemon) {
-    let pokemonList = document.querySelector('.pokemon-list');
+    let pokemonList = document.querySelector('#pokemon-list');
     let listPokemon = document.createElement('li');
     let button = document.createElement('button');
+    pokemonList.classList.add('pokemon-list-item');
     button.innerText = pokemon.name;
     button.classList.add('pokedex-button');
     button.addEventListener('click', function () {
@@ -37,6 +38,7 @@ let pokemonRepository = (function () {
     });
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
+
   }
 
   //Get list of pokemon from api

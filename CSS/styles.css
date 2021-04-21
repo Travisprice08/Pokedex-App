@@ -19,7 +19,7 @@ header {
   font-size: 30px;
 }
 
-.pokemon-list{
+#pokemon-list{
   text-align: center;
   margin: auto 885px;
 }
@@ -71,8 +71,7 @@ header {
 
   .closeBtn{
     color: #ccc;
-    float: right;
-    font-size: 30px;
+    
   }
 
   .closeBtn:hover, .closeBtn:focus {
