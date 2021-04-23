@@ -5,6 +5,7 @@ let pokemonRepository = (function () {
   let searchField = document.querySelector('#pokedex-search');
 
 
+
   function getAll() {
     return pokemonList;
   }
@@ -27,7 +28,7 @@ let pokemonRepository = (function () {
    );
    const button = $(
      '<button type="button" class="btn-block pokedex-button" data-toggle="modal" data-target="#pokeModal">' +
-       pokemon.name +
+       pokemon.name.toUpperCase() +
        '</button>'
    );
    container.append(listItem);
@@ -55,7 +56,7 @@ let pokemonRepository = (function () {
       });
     }).catch(function (e) {
       console.error(e);
-    })
+    });
   }
 
   //Gets details of pokemon
@@ -94,9 +95,9 @@ let pokemonRepository = (function () {
   }
 
   searchField.addEventListener ('input', function(){
-
     let pokeList = document.querySelectorAll('.pokemon-list-item');
     let filterValue = searchField.value.toUpperCase();
+
 
 
     pokeList.forEach(function(pokemon){
@@ -106,7 +107,7 @@ let pokemonRepository = (function () {
       }else{
         pokemon.style.display = 'none';
       }
-    })
+    });
   });
 
   return {

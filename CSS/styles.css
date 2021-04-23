@@ -2,13 +2,18 @@
   --primary-color: #f05945;/*red*/
   --secondary-color: #f9f3f3;/*white*/
   --accent-color: #393232;/*grey*/
+  --poke-accent-color: #3d7dca; /*blue*/
+  --poke-yellow: #ffcb05;/*yellow*/
 }
+
 
 body {
   font-size: 15px;
   font-family:'Acme', sans-serif;
   padding: 20px;
   text-align: center;
+  background-image:url(https://files.wallpaperpass.com/2019/10/pikachu%20wallpaper%20105%20-%201230x735.jpg);
+  background-attachment: fixed;
 }
 
 h1 {
@@ -17,34 +22,38 @@ h1 {
   font-size: 100px;
 }
 
-.modal-body {
-  text-align: center;
+
+#navi {
+  color: #393e46;
+  border: 10px solid var(--poke-accent-color);
+  background-color: var(--poke-yellow);
 }
 
-navbar {
-  color: #393e46;
+#pokedex-img {
+  margin-left: 25px;
 }
 
 #pokemon-list{
   text-align: center;
-  width: 110px;
-  margin: 40px 880px;
+  margin: 40px auto;
+  max-width: 600px;
+  min-width: 300px;
 
 }
 
-.pokedex-button {
-    border: none;
+.pokedex-button{
+    border: 5px solid var(--poke-accent-color);
     background-color: var(--primary-color);
     color: var(--accent-color);
-    width: 200px;
-    height: 100px;
+    width: 600px;
+    height: 70px;
     font-family:'Acme', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 30px;
+    font-weight: 500;
+
     margin: 10px auto;
     /*adds spacing to the button */
-    padding: 10px;
-    border-radius: 3px;
+    border-radius: 8px;
     /* width of the border, type, color */
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
     /* gives the button a bottom border with a width of 2px, a type of solid, and a color in RGBA forma */
@@ -59,6 +68,4 @@ navbar {
     color: var(--secondary-color);
   }
 
-  #pokedex-search {
-    margin-right: 50px;
-  }
+  
