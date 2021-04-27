@@ -14,7 +14,8 @@ body {
   text-align: center;
   background-image:url(https://files.wallpaperpass.com/2019/10/pikachu%20wallpaper%20105%20-%201230x735.jpg);
   background-attachment: fixed;
-  width: 100%;
+  background-position: 50% 50%;
+  
 }
 
 h1 {
